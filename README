@@ -1,1 +1,35 @@
-This is a repository for state spending transparency scrapers
+This is a repository for state spending scrapers. 
+
+Set of possible fields:
+
+fiscal_year
+state
+data_type # possible values are budget, expenditure, aggregated_expenditure
+spending_type #possible values are salary, contract, grant, pension, general_expenditure
+recipient_name
+recipient_address
+recipient_phone_number
+recipient_city
+recipient_county
+recipient_zip
+recipient_state
+description
+category_code
+account_number
+fund_number
+fund_name
+agency_name
+agency_number
+sub_agency_name
+sub_agency_number
+transaction_amount  # populate if it's fully transactional
+aggregate_amount    # populate if it's semi-aggregate
+transaction_description
+
+
+
+
+
+
+
+
