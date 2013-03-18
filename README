@@ -1,10 +1,32 @@
-This is a repository for state spending scrapers. 
+This is a repository for state spending scrapers. It relies on the billy scraping framework used for the Open States project. It is currently dependent on the spending branch of billy. You can clone the branch here:
 
-Set of possible fields:
+https://github.com/sunlightlabs/billy/tree/spending
 
-fiscal_year
-state
-data_type # possible values are budget, expenditure, aggregated_expenditure
+After cloning the neanmachine repo and the billy repo, install the dependencies from both repos using 
+pip install -r BILLY_REPO/requirements.txt
+pip install -r NEANMACHINE_REPO/requirements.txt
+
+Then cd into the billy directory and run
+
+python setup.py develop
+
+Now you should be able to run one of the existing scrapers (MD, VA or NY) with the command
+
+billy-expenditures md
+
+(for maryland)
+
+To write your own scraper, you'll need to subclass the Billy scrapers in a file called either transactional_expenditures.py or aggregated_expenditures.py. You'll also need a short metadata file that defines the abbreviation for your state. Don't worry about database storage for now -- Billy will save the data to a raw JSON file for processing and importing later. 
+
+
+Many state spending data varies in it's detail and granularity. If your data is aggregated by department/agency, object code, or other item, subclass the AggregatedTransactionalScraper. If you have line item transactional data, subclass the TransactionalExpenditureScraper. Both scrapers need a scrape method to be defined in the subclass. 
+ 
+
+Set of possible (recommended) fields:
+
+fiscal_year #required 
+jurisdiction #required
+scraper_type # possible values are transactional_expenditures, aggregated_expenditures
 spending_type #possible values are salary, contract, grant, pension, general_expenditure
 recipient_name
 recipient_address
@@ -14,16 +36,15 @@ recipient_county
 recipient_zip
 recipient_state
 description
-category_code
+category_code #sometimes called object code, budget code/function in source data
 account_number
 fund_number
 fund_name
 agency_name
 agency_number
-sub_agency_name
+sub_agency_name # may need to be separated from top level agency name
 sub_agency_number
-transaction_amount  # populate if it's fully transactional
-aggregate_amount    # populate if it's semi-aggregate
+amount  
 transaction_description
 
 
