@@ -10,11 +10,11 @@ Then cd into the billy directory and run
 
 python setup.py develop
 
-Now you should be able to run one of the existing scrapers (MD, VA or NY) with the command
+Now you should be able to run one of the existing scrapers (MD, VA or NY). CD into the top level of the neanmachine repo and run the command
 
 billy-expenditures md
 
-(for maryland)
+(for maryland, sub the abbreviation for whatever state you want to run)
 
 To write your own scraper, you'll need to subclass the Billy scrapers in a file called either transactional_expenditures.py or aggregated_expenditures.py. You'll also need a short metadata file that defines the abbreviation for your state. Don't worry about database storage for now -- Billy will save the data to a raw JSON file for processing and importing later. 
 
