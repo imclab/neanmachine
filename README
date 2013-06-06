@@ -48,8 +48,13 @@ amount
 transaction_description
 
 
+Some states make their spending data available in CSV or other delimited forms. Our intern Nina (the namesake of this project) collected many of these datasets here:
+http://datahub.io/en/group/us-state-spending-and-revenue-data
+
+The datasets may need to be updated but source links should be available in the metadata of each dataset. 
 
 
+Need help or have questions? You can find us in the #sunlightlabs IRC channel on freenode. We're there 9-6ish most weekdays.
 
 
 
